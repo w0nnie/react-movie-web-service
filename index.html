@@ -9,29 +9,25 @@
   <body>
     <div id="root"></div>
   </body>
-  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/react@18.0.0/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@18.0.0/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    let counter = 0;
-    function render(){
-      ReactDOM.render(<Container />, root);
-    }
-    function countUp(){
-      counter += 1;
-      render(); //function이 작동한 후 에 rendering을 다시해주는 개념 
-    }
-    
-    function Container(){
+    function App(){
+      const [counter,setCount] = React.useState(0);  //useState란
+      // let counter = 0;    <-- useState 란 이와같은 초기변수와 function의 기능을 한다.
+      // function countUp(){
+      //   function
+      // }
       return(
           <div>
             <h3>Total clicks: {counter}</h3>
-            <button onClick={countUp}>Click me</button>
+            <button>Click me</button>
           </div>
       );
     }
 
-    render();
+    ReactDOM.render(<App />, root);
   </script>
 </html>
