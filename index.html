@@ -14,12 +14,24 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    const Container = () => (
-      <div>
-        <h3>Total clicks: 0</h3>
-        <button>Click me</button>
-      </div>
-    );
-    ReactDOM.render(<Container />, root);
+    let counter = 0;
+    function render(){
+      ReactDOM.render(<Container />, root);
+    }
+    function countUp(){
+      counter += 1;
+      render(); //function이 작동한 후 에 rendering을 다시해주는 개념 
+    }
+    
+    function Container(){
+      return(
+          <div>
+            <h3>Total clicks: {counter}</h3>
+            <button onClick={countUp}>Click me</button>
+          </div>
+      );
+    }
+
+    render();
   </script>
 </html>
