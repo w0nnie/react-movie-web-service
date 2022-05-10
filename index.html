@@ -20,10 +20,13 @@
       // function countUp(){
       //   function
       // }
+      const onClick = () => {
+        setCount(counter + 1);
+      }
       return(
           <div>
             <h3>Total clicks: {counter}</h3>
-            <button>Click me</button>
+            <button onClick = {onClick} >Click me</button>
           </div>
       );
     }
