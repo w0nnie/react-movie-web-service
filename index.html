@@ -14,8 +14,8 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    function App(){
-      const [counter,setCount] = React.useState(0);  //useState란
+    function App() {
+      const [counter, setCount] = React.useState(0); //useState란
       // let counter = 0;    <-- useState 란 이와같은 초기변수와 function의 기능을 한다.
       // function countUp(){
       //   function
@@ -23,13 +23,13 @@
       console.log("hi");
       console.log(counter);
       const onClick = () => {
-        setCount(counter + 1);
-      }
-      return(
-          <div>
-            <h3>Total clicks: {counter}</h3>
-            <button onClick = {onClick} >Click me1</button>
-          </div>
+        setCount((current) => current + 1);
+      };
+      return (
+        <div>
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
+        </div>
       );
     }
 
