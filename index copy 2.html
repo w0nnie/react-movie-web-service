@@ -15,16 +15,24 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
+      const [counter, setCount] = React.useState(0); //useState란
+      // let counter = 0;    <-- useState 란 이와같은 초기변수와 function의 기능을 한다.
+      // function countUp(){
+      //   function
+      // }
+      console.log("hi");
+      console.log(counter);
+      const onClick = () => {
+        setCount((current) => current + 1);
+      };
       return (
         <div>
-          <h1>Super Converter</h1>
-          <label for="minutes">Minutes</label>
-          <input id="minutes" placeholder="Minutes" type="number" />
-          <label for="hours">Hours</label>
-          <input id="hours" placeholder="Hours" type="number" />
+          <h3>Total clicks: {counter}</h3>
+          <button onClick={onClick}>Click me</button>
         </div>
       );
     }
+
     ReactDOM.render(<App />, root);
   </script>
 </html>
