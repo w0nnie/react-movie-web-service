@@ -15,11 +15,16 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
+      const [minutes, setMiuntes] = React.useState();
+      const onChange = (event) => {
+        setMiuntes(event.target.value);
+      }
       return (
         <div>
           <h1>Super Converter</h1>
           <label for="minutes">Minutes</label>
-          <input id="minutes" placeholder="Minutes" type="number" />
+          <input id="minutes" value={minutes} placeholder="Minutes" type="number" onChange={onChange}/>
+          <h4>here {minutes}</h4>
           <label for="hours">Hours</label>
           <input id="hours" placeholder="Hours" type="number" />
         </div>
