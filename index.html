@@ -15,18 +15,25 @@
   <script type="text/babel">
     const root = document.getElementById("root");
     function App() {
-      const [minutes, setMiuntes] = React.useState();
+      const [minutes, setMiuntes] = React.useState(); // <<-- useState(초깃값)
       const onChange = (event) => {
         setMiuntes(event.target.value);
       }
+      const reset = () => {
+        setMiuntes("");
+      } 
       return (
         <div>
           <h1>Super Converter</h1>
-          <label for="minutes">Minutes</label>
-          <input id="minutes" value={minutes} placeholder="Minutes" type="number" onChange={onChange}/>
-          <h4>here {minutes}</h4>
-          <label for="hours">Hours</label>
-          <input id="hours" placeholder="Hours" type="number" />
+          <div>
+            <label for="minutes">Minutes</label>
+            <input id="minutes" value={minutes} placeholder="Minutes" type="number" onChange={onChange}/>
+          </div>
+          <div>
+            <label for="hours">Hours</label>
+            <input id="hours" value={Math.round(minutes / 60)} placeholder="Hours" type="number" />
+          </div>
+          <button onClick={reset}>reset</button>
         </div>
       );
     }
