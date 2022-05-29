@@ -19,6 +19,7 @@
       const [flipped, setFlipped] = React.useState(false);
       const onChange = (event) => {
         setAmount(event.target.value);
+        console.log("hi");
       };
       const reset = () => setAmount("");
       const onFlip = () => setFlipped((current) => !current);
