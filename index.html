@@ -14,7 +14,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     const root = document.getElementById("root");
-    function App() {
+    function MinutesToHours() {
       const [amount, setAmount] = React.useState(); // <<-- useState(초깃값)
       const [inverted, setInverted] = React.useState(false);
       const onChange = (event) => {
@@ -24,7 +24,6 @@
       const onFlip = () => setInverted((current) => !current);
       return (
         <div>
-          <h1>Super Converter</h1>
           <div>
             <label for="minutes">Minutes</label>
             <input
@@ -49,6 +48,53 @@
           </div>
           <button onClick={reset}>reset</button>
           <button onClick={onFlip}>{inverted ? "Turn back" : "Invert"}</button>
+        </div>
+      );
+    }
+    function KiloToMile() {
+      const [amount, setAmount] = React.useState(); // <<-- useState(초깃값)
+      const [inverted, setInverted] = React.useState(false);
+      const onChange = (event) => {
+        setAmount(event.target.value);
+      };
+      const reset = () => setAmount("");
+      const onFlip = () => setInverted((current) => !current);
+      return (
+        <div>
+          <div>
+            <label for="kilo">Kilo</label>
+            <input
+              id="kilo"
+              value={inverted ? amount * 1.60934 : amount}
+              placeholder="Kilo"
+              type="number"
+              onChange={onChange}
+              disabled={inverted}
+            />
+          </div>
+          <div>
+            <label for="mile">Mile</label>
+            <input
+              id="mile"
+              value={inverted ? amount : amount / 1.60934}
+              placeholder="Mile"
+              type="number"
+              disabled={!inverted}
+              onChange={onChange}
+            />
+          </div>
+          <button onClick={reset}>reset</button>
+          <button onClick={onFlip}>{inverted ? "Turn back" : "Invert"}</button>
+        </div>
+      );
+    }
+
+    function App() {
+      return (
+        <div>
+          <h1>Super Converter</h1>
+          <MinutesToHours />
+          <KiloToMile />
         </div>
       );
     }
